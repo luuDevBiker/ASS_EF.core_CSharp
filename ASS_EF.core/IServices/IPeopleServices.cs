@@ -12,8 +12,8 @@ namespace ASS_EF.core.IServices
         //thêm Person.
         string addPerson(Person People);
         // sửa Person.
-        string updateDanhBa(Person People);
+        string updatePerson(Person People);
         // xóa Person.
-        string xoaDanhBa(Person People);
+        string xoaPerson(Person People);
     }
 }

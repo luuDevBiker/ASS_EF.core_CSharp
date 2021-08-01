@@ -10,15 +10,15 @@ namespace ASS_EF.core.Services
 {
     public partial class Services : IServices.IServices
     {
-        private DatabaseContext _dbContext;
+        private DatabaseContext _dbContext =new DatabaseContext();
         private List<Person> _lstperson;
         private List<DanhBa> _lstdanhBa;
 
         public Services()
         {
-            _dbContext = new DatabaseContext();
             getListDanhba();
             getListPerson();
+            _dbContext = new DatabaseContext();
         }
         // lấy dữ liệu DanhBa từ DB đổ lên _lstdanhBa
         public List<DanhBa> getListDanhba()
@@ -29,7 +29,6 @@ namespace ASS_EF.core.Services
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
                 return null;
             }
         }
@@ -42,7 +41,6 @@ namespace ASS_EF.core.Services
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
                 return null;
             }
         }
@@ -55,7 +53,6 @@ namespace ASS_EF.core.Services
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
                 return null;
             }
         }
@@ -68,7 +65,6 @@ namespace ASS_EF.core.Services
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
                 return null;
             }
         }
@@ -83,11 +79,11 @@ namespace ASS_EF.core.Services
             try
             {
                 _dbContext.SaveChanges();
-                return "Done";
+                return "Lưu thành công.";
             }
             catch (Exception e)
             {
-                return "Error : " + e.Message;
+                return "Error : Lưu thất bại.\n" + e.Message;
             }
         }
     }
