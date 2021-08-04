@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ASS_EF.core.Models;
-using ASS_EF.core.Services;
-using static ASS_EF.core.Services.Services;
+// using ASS_EF.core.Services;
+// using static ASS_EF.core.Services.Services;
 
 namespace ASS_EF.core.IServices
 {
@@ -22,5 +22,9 @@ namespace ASS_EF.core.IServices
         Guid getId(int index);
         // lưu nhưng thay đổi trên form
         string saveChangeData();
+        // gửi lên form list data đã được join
+        List<VwPeopleDanhba> sendPeopleDanhbas();
+        // lấy giá trị list ViewData trong database lên -- table View trong SQL
+        List<VwPeopleDanhba> getListView();
     }
 }

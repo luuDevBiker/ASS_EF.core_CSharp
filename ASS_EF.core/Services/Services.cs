@@ -13,11 +13,13 @@ namespace ASS_EF.core.Services
         private DatabaseContext _dbContext =new DatabaseContext();
         private List<Person> _lstperson;
         private List<DanhBa> _lstdanhBa;
+        private List<VwPeopleDanhba> _peopleDanhbas;
 
         public Services()
         {
             getListDanhba();
             getListPerson();
+            getListView();
             _dbContext = new DatabaseContext();
         }
         // lấy dữ liệu DanhBa từ DB đổ lên _lstdanhBa
@@ -85,6 +87,17 @@ namespace ASS_EF.core.Services
             {
                 return "Error : Lưu thất bại.\n" + e.Message;
             }
+        }
+
+        public List<VwPeopleDanhba> sendPeopleDanhbas()
+        {
+            return _peopleDanhbas;
+        }
+
+        public List<VwPeopleDanhba> getListView()
+        {
+            _peopleDanhbas = _dbContext.VwPeopleDanhbas.ToList();
+            return _peopleDanhbas;
         }
     }
 }

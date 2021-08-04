@@ -29,7 +29,7 @@ namespace ASS_EF.core.Services
         {
             try
             {
-                _dbContext.People.Add(People);
+                _dbContext.Add(People);
                 _lstperson.Add(People);
                 return "Thêm thông tin người dùng thành công.";
             }

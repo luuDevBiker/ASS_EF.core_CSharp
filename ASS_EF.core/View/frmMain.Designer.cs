@@ -31,6 +31,8 @@ namespace ASS_EF.core
         {
             this.pnEvent = new System.Windows.Forms.Panel();
             this.grbEvent = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbNhaMang = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClearPp = new System.Windows.Forms.Button();
             this.btnXoaPp = new System.Windows.Forms.Button();
@@ -38,7 +40,7 @@ namespace ASS_EF.core
             this.btnThemPp = new System.Windows.Forms.Button();
             this.btnLoadDanhba = new System.Windows.Forms.Button();
             this.btnLoadPerson = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.lblTimKiem = new System.Windows.Forms.Label();
             this.grbPeople = new System.Windows.Forms.GroupBox();
             this.btnKiemTra = new System.Windows.Forms.Button();
@@ -82,11 +84,13 @@ namespace ASS_EF.core
             this.pnEvent.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnEvent.Location = new System.Drawing.Point(0, 0);
             this.pnEvent.Name = "pnEvent";
-            this.pnEvent.Size = new System.Drawing.Size(1082, 397);
+            this.pnEvent.Size = new System.Drawing.Size(1299, 397);
             this.pnEvent.TabIndex = 0;
             // 
             // grbEvent
             // 
+            this.grbEvent.Controls.Add(this.label1);
+            this.grbEvent.Controls.Add(this.cbNhaMang);
             this.grbEvent.Controls.Add(this.btnSave);
             this.grbEvent.Controls.Add(this.btnClearPp);
             this.grbEvent.Controls.Add(this.btnXoaPp);
@@ -94,20 +98,42 @@ namespace ASS_EF.core
             this.grbEvent.Controls.Add(this.btnThemPp);
             this.grbEvent.Controls.Add(this.btnLoadDanhba);
             this.grbEvent.Controls.Add(this.btnLoadPerson);
-            this.grbEvent.Controls.Add(this.textBox8);
+            this.grbEvent.Controls.Add(this.txtTimKiem);
             this.grbEvent.Controls.Add(this.lblTimKiem);
-            this.grbEvent.Dock = System.Windows.Forms.DockStyle.Left;
-            this.grbEvent.Location = new System.Drawing.Point(671, 0);
+            this.grbEvent.Dock = System.Windows.Forms.DockStyle.Right;
+            this.grbEvent.Location = new System.Drawing.Point(844, 0);
             this.grbEvent.Name = "grbEvent";
-            this.grbEvent.Size = new System.Drawing.Size(399, 397);
+            this.grbEvent.Size = new System.Drawing.Size(455, 397);
             this.grbEvent.TabIndex = 2;
             this.grbEvent.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 86);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 25);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "nhà mạng :";
+            // 
+            // cbNhaMang
+            // 
+            this.cbNhaMang.FormattingEnabled = true;
+            this.cbNhaMang.Items.AddRange(new object[] {
+            "viettel",
+            "mobiphone",
+            "vinaphone"});
+            this.cbNhaMang.Location = new System.Drawing.Point(113, 83);
+            this.cbNhaMang.Name = "cbNhaMang";
+            this.cbNhaMang.Size = new System.Drawing.Size(249, 33);
+            this.cbNhaMang.TabIndex = 10;
+            this.cbNhaMang.SelectedIndexChanged += new System.EventHandler(this.cbNhaMang_SelectedIndexChanged);
+            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(103, 269);
+            this.btnSave.Location = new System.Drawing.Point(6, 357);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(259, 34);
+            this.btnSave.Size = new System.Drawing.Size(393, 34);
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Save data";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -115,7 +141,7 @@ namespace ASS_EF.core
             // 
             // btnClearPp
             // 
-            this.btnClearPp.Location = new System.Drawing.Point(247, 142);
+            this.btnClearPp.Location = new System.Drawing.Point(284, 277);
             this.btnClearPp.Name = "btnClearPp";
             this.btnClearPp.Size = new System.Drawing.Size(115, 34);
             this.btnClearPp.TabIndex = 5;
@@ -125,7 +151,7 @@ namespace ASS_EF.core
             // 
             // btnXoaPp
             // 
-            this.btnXoaPp.Location = new System.Drawing.Point(103, 142);
+            this.btnXoaPp.Location = new System.Drawing.Point(6, 277);
             this.btnXoaPp.Name = "btnXoaPp";
             this.btnXoaPp.Size = new System.Drawing.Size(112, 34);
             this.btnXoaPp.TabIndex = 6;
@@ -135,7 +161,7 @@ namespace ASS_EF.core
             // 
             // btnSuaPp
             // 
-            this.btnSuaPp.Location = new System.Drawing.Point(247, 95);
+            this.btnSuaPp.Location = new System.Drawing.Point(284, 237);
             this.btnSuaPp.Name = "btnSuaPp";
             this.btnSuaPp.Size = new System.Drawing.Size(115, 34);
             this.btnSuaPp.TabIndex = 7;
@@ -145,7 +171,7 @@ namespace ASS_EF.core
             // 
             // btnThemPp
             // 
-            this.btnThemPp.Location = new System.Drawing.Point(103, 95);
+            this.btnThemPp.Location = new System.Drawing.Point(6, 237);
             this.btnThemPp.Name = "btnThemPp";
             this.btnThemPp.Size = new System.Drawing.Size(112, 34);
             this.btnThemPp.TabIndex = 8;
@@ -155,9 +181,10 @@ namespace ASS_EF.core
             // 
             // btnLoadDanhba
             // 
-            this.btnLoadDanhba.Location = new System.Drawing.Point(103, 229);
+            this.btnLoadDanhba.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLoadDanhba.Location = new System.Drawing.Point(214, 317);
             this.btnLoadDanhba.Name = "btnLoadDanhba";
-            this.btnLoadDanhba.Size = new System.Drawing.Size(259, 34);
+            this.btnLoadDanhba.Size = new System.Drawing.Size(185, 34);
             this.btnLoadDanhba.TabIndex = 2;
             this.btnLoadDanhba.Text = "Danh Sách Danh Bạ";
             this.btnLoadDanhba.UseVisualStyleBackColor = true;
@@ -165,20 +192,25 @@ namespace ASS_EF.core
             // 
             // btnLoadPerson
             // 
-            this.btnLoadPerson.Location = new System.Drawing.Point(103, 189);
+            this.btnLoadPerson.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLoadPerson.Location = new System.Drawing.Point(6, 317);
             this.btnLoadPerson.Name = "btnLoadPerson";
-            this.btnLoadPerson.Size = new System.Drawing.Size(259, 34);
+            this.btnLoadPerson.Size = new System.Drawing.Size(202, 34);
             this.btnLoadPerson.TabIndex = 2;
             this.btnLoadPerson.Text = "   Danh Sách Người Dùng";
             this.btnLoadPerson.UseVisualStyleBackColor = true;
             this.btnLoadPerson.Click += new System.EventHandler(this.btnLoadPerson_Click);
             // 
-            // textBox8
+            // txtTimKiem
             // 
-            this.textBox8.Location = new System.Drawing.Point(103, 39);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(263, 31);
-            this.textBox8.TabIndex = 1;
+            this.txtTimKiem.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtTimKiem.Location = new System.Drawing.Point(113, 42);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.PlaceholderText = "Nhập tên _ Số điện thoại _ Email";
+            this.txtTimKiem.Size = new System.Drawing.Size(249, 29);
+            this.txtTimKiem.TabIndex = 1;
+            this.txtTimKiem.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTimKiem_KeyUp);
             // 
             // lblTimKiem
             // 
@@ -205,9 +237,9 @@ namespace ASS_EF.core
             this.grbPeople.Controls.Add(this.lblTenDem);
             this.grbPeople.Controls.Add(this.lblHo);
             this.grbPeople.Dock = System.Windows.Forms.DockStyle.Left;
-            this.grbPeople.Location = new System.Drawing.Point(340, 0);
+            this.grbPeople.Location = new System.Drawing.Point(426, 0);
             this.grbPeople.Name = "grbPeople";
-            this.grbPeople.Size = new System.Drawing.Size(331, 397);
+            this.grbPeople.Size = new System.Drawing.Size(412, 397);
             this.grbPeople.TabIndex = 0;
             this.grbPeople.TabStop = false;
             this.grbPeople.Text = "Peoples";
@@ -215,7 +247,7 @@ namespace ASS_EF.core
             // btnKiemTra
             // 
             this.btnKiemTra.Enabled = false;
-            this.btnKiemTra.Location = new System.Drawing.Point(128, 357);
+            this.btnKiemTra.Location = new System.Drawing.Point(209, 316);
             this.btnKiemTra.Name = "btnKiemTra";
             this.btnKiemTra.Size = new System.Drawing.Size(197, 34);
             this.btnKiemTra.TabIndex = 6;
@@ -265,7 +297,7 @@ namespace ASS_EF.core
             this.txtTen.Location = new System.Drawing.Point(104, 128);
             this.txtTen.MaxLength = 10;
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(221, 31);
+            this.txtTen.Size = new System.Drawing.Size(302, 31);
             this.txtTen.TabIndex = 3;
             // 
             // txtTenDem
@@ -274,7 +306,7 @@ namespace ASS_EF.core
             this.txtTenDem.Location = new System.Drawing.Point(104, 83);
             this.txtTenDem.MaxLength = 10;
             this.txtTenDem.Name = "txtTenDem";
-            this.txtTenDem.Size = new System.Drawing.Size(221, 31);
+            this.txtTenDem.Size = new System.Drawing.Size(302, 31);
             this.txtTenDem.TabIndex = 2;
             // 
             // txtHo
@@ -283,7 +315,7 @@ namespace ASS_EF.core
             this.txtHo.Location = new System.Drawing.Point(104, 39);
             this.txtHo.MaxLength = 10;
             this.txtHo.Name = "txtHo";
-            this.txtHo.Size = new System.Drawing.Size(221, 31);
+            this.txtHo.Size = new System.Drawing.Size(302, 31);
             this.txtHo.TabIndex = 1;
             // 
             // lblTen
@@ -330,7 +362,7 @@ namespace ASS_EF.core
             this.grbDanhBa.Dock = System.Windows.Forms.DockStyle.Left;
             this.grbDanhBa.Location = new System.Drawing.Point(0, 0);
             this.grbDanhBa.Name = "grbDanhBa";
-            this.grbDanhBa.Size = new System.Drawing.Size(340, 397);
+            this.grbDanhBa.Size = new System.Drawing.Size(426, 397);
             this.grbDanhBa.TabIndex = 1;
             this.grbDanhBa.TabStop = false;
             this.grbDanhBa.Text = "Danh Bạ";
@@ -340,7 +372,7 @@ namespace ASS_EF.core
             this.rtbGhiChu.Location = new System.Drawing.Point(113, 222);
             this.rtbGhiChu.MaxLength = 150;
             this.rtbGhiChu.Name = "rtbGhiChu";
-            this.rtbGhiChu.Size = new System.Drawing.Size(221, 54);
+            this.rtbGhiChu.Size = new System.Drawing.Size(307, 54);
             this.rtbGhiChu.TabIndex = 1;
             this.rtbGhiChu.Text = "";
             // 
@@ -393,15 +425,16 @@ namespace ASS_EF.core
             // 
             this.txtMail.Location = new System.Drawing.Point(113, 178);
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(221, 31);
+            this.txtMail.Size = new System.Drawing.Size(307, 31);
             this.txtMail.TabIndex = 1;
             // 
             // txtSdt2
             // 
             this.txtSdt2.Location = new System.Drawing.Point(113, 128);
+            this.txtSdt2.MaxLength = 13;
             this.txtSdt2.Name = "txtSdt2";
             this.txtSdt2.PlaceholderText = "+84";
-            this.txtSdt2.Size = new System.Drawing.Size(221, 31);
+            this.txtSdt2.Size = new System.Drawing.Size(307, 31);
             this.txtSdt2.TabIndex = 1;
             // 
             // txtSdt1
@@ -412,7 +445,7 @@ namespace ASS_EF.core
             this.txtSdt1.MaxLength = 13;
             this.txtSdt1.Name = "txtSdt1";
             this.txtSdt1.PlaceholderText = "+84";
-            this.txtSdt1.Size = new System.Drawing.Size(221, 31);
+            this.txtSdt1.Size = new System.Drawing.Size(307, 31);
             this.txtSdt1.TabIndex = 1;
             // 
             // txtTenDb
@@ -420,7 +453,7 @@ namespace ASS_EF.core
             this.txtTenDb.Location = new System.Drawing.Point(113, 39);
             this.txtTenDb.Name = "txtTenDb";
             this.txtTenDb.ReadOnly = true;
-            this.txtTenDb.Size = new System.Drawing.Size(221, 31);
+            this.txtTenDb.Size = new System.Drawing.Size(307, 31);
             this.txtTenDb.TabIndex = 1;
             // 
             // pnData
@@ -429,7 +462,7 @@ namespace ASS_EF.core
             this.pnData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnData.Location = new System.Drawing.Point(0, 397);
             this.pnData.Name = "pnData";
-            this.pnData.Size = new System.Drawing.Size(1082, 319);
+            this.pnData.Size = new System.Drawing.Size(1299, 319);
             this.pnData.TabIndex = 0;
             // 
             // dgvdata
@@ -447,7 +480,7 @@ namespace ASS_EF.core
             this.dgvdata.ReadOnly = true;
             this.dgvdata.RowHeadersWidth = 62;
             this.dgvdata.RowTemplate.Height = 33;
-            this.dgvdata.Size = new System.Drawing.Size(1082, 319);
+            this.dgvdata.Size = new System.Drawing.Size(1299, 319);
             this.dgvdata.TabIndex = 2;
             this.dgvdata.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvdata_CellMouseClick);
             // 
@@ -456,7 +489,7 @@ namespace ASS_EF.core
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1082, 716);
+            this.ClientSize = new System.Drawing.Size(1299, 716);
             this.Controls.Add(this.pnData);
             this.Controls.Add(this.pnEvent);
             this.MaximizeBox = false;
@@ -464,6 +497,7 @@ namespace ASS_EF.core
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.pnEvent.ResumeLayout(false);
             this.pnEvent.PerformLayout();
             this.grbEvent.ResumeLayout(false);
@@ -506,7 +540,7 @@ namespace ASS_EF.core
         private System.Windows.Forms.TextBox txtTenDb;
         private System.Windows.Forms.Label lblGhiChu;
         private System.Windows.Forms.GroupBox grbEvent;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Label lblTimKiem;
         private System.Windows.Forms.Button btnLoadDanhba;
         private System.Windows.Forms.Button btnLoadPerson;
@@ -516,6 +550,8 @@ namespace ASS_EF.core
         private System.Windows.Forms.Button btnThemPp;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnKiemTra;
+        private System.Windows.Forms.ComboBox cbNhaMang;
+        private System.Windows.Forms.Label label1;
     }
 }
 

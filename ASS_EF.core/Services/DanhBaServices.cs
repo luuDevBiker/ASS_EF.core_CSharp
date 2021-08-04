@@ -16,6 +16,7 @@ namespace ASS_EF.core.Services
             {
                 _dbContext.DanhBas.Add(DanhBa);
                 _lstdanhBa.Add(DanhBa);
+                getListView();
                 return "Thêm Thông tin danh bạ thành công.";
             }
             catch (Exception e)
@@ -30,6 +31,7 @@ namespace ASS_EF.core.Services
             {
                 _dbContext.DanhBas.Update(DanhBa);
                 _lstdanhBa[_lstdanhBa.FindIndex(x => x.IdDbPp == DanhBa.IdDbPp)] = DanhBa;
+                getListView();
                 return "Thông tin danh bạ cập nhật thành công.";
             }
             catch (Exception e) 
@@ -44,6 +46,7 @@ namespace ASS_EF.core.Services
             {
                 _dbContext.Remove(DanhBa);
                 _lstdanhBa.RemoveAt(_lstperson.FindIndex(x => x.IdPp == DanhBa.IdDbPp));
+                getListView();
                 return "Xóa thông tin danh bạ thành công.";
             }
             catch (Exception e)
