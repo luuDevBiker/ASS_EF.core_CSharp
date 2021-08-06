@@ -31,6 +31,7 @@ namespace ASS_EF.core
         {
             this.pnEvent = new System.Windows.Forms.Panel();
             this.grbEvent = new System.Windows.Forms.GroupBox();
+            this.lblID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbNhaMang = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -89,6 +90,7 @@ namespace ASS_EF.core
             // 
             // grbEvent
             // 
+            this.grbEvent.Controls.Add(this.lblID);
             this.grbEvent.Controls.Add(this.label1);
             this.grbEvent.Controls.Add(this.cbNhaMang);
             this.grbEvent.Controls.Add(this.btnSave);
@@ -107,6 +109,14 @@ namespace ASS_EF.core
             this.grbEvent.TabIndex = 2;
             this.grbEvent.TabStop = false;
             // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(6, 164);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(0, 25);
+            this.lblID.TabIndex = 12;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -120,13 +130,15 @@ namespace ASS_EF.core
             // 
             this.cbNhaMang.FormattingEnabled = true;
             this.cbNhaMang.Items.AddRange(new object[] {
-            "viettel",
-            "mobiphone",
-            "vinaphone"});
+            "Viettel",
+            "Mobiphone",
+            "Vinaphone",
+            "Gmobile",
+            "Vietnamobile"});
             this.cbNhaMang.Location = new System.Drawing.Point(113, 83);
             this.cbNhaMang.Name = "cbNhaMang";
             this.cbNhaMang.Size = new System.Drawing.Size(249, 33);
-            this.cbNhaMang.TabIndex = 10;
+            this.cbNhaMang.TabIndex = 2;
             this.cbNhaMang.SelectedIndexChanged += new System.EventHandler(this.cbNhaMang_SelectedIndexChanged);
             // 
             // btnSave
@@ -144,27 +156,29 @@ namespace ASS_EF.core
             this.btnClearPp.Location = new System.Drawing.Point(284, 277);
             this.btnClearPp.Name = "btnClearPp";
             this.btnClearPp.Size = new System.Drawing.Size(115, 34);
-            this.btnClearPp.TabIndex = 5;
+            this.btnClearPp.TabIndex = 6;
             this.btnClearPp.Text = "Clear";
             this.btnClearPp.UseVisualStyleBackColor = true;
             this.btnClearPp.Click += new System.EventHandler(this.btnClearPp_Click);
             // 
             // btnXoaPp
             // 
+            this.btnXoaPp.Enabled = false;
             this.btnXoaPp.Location = new System.Drawing.Point(6, 277);
             this.btnXoaPp.Name = "btnXoaPp";
             this.btnXoaPp.Size = new System.Drawing.Size(112, 34);
-            this.btnXoaPp.TabIndex = 6;
+            this.btnXoaPp.TabIndex = 5;
             this.btnXoaPp.Text = "Xóa";
             this.btnXoaPp.UseVisualStyleBackColor = true;
             this.btnXoaPp.Click += new System.EventHandler(this.btnXoaPp_Click);
             // 
             // btnSuaPp
             // 
+            this.btnSuaPp.Enabled = false;
             this.btnSuaPp.Location = new System.Drawing.Point(284, 237);
             this.btnSuaPp.Name = "btnSuaPp";
             this.btnSuaPp.Size = new System.Drawing.Size(115, 34);
-            this.btnSuaPp.TabIndex = 7;
+            this.btnSuaPp.TabIndex = 4;
             this.btnSuaPp.Text = "Sửa";
             this.btnSuaPp.UseVisualStyleBackColor = true;
             this.btnSuaPp.Click += new System.EventHandler(this.btnSuaPp_Click);
@@ -174,7 +188,7 @@ namespace ASS_EF.core
             this.btnThemPp.Location = new System.Drawing.Point(6, 237);
             this.btnThemPp.Name = "btnThemPp";
             this.btnThemPp.Size = new System.Drawing.Size(112, 34);
-            this.btnThemPp.TabIndex = 8;
+            this.btnThemPp.TabIndex = 3;
             this.btnThemPp.Text = "Thêm";
             this.btnThemPp.UseVisualStyleBackColor = true;
             this.btnThemPp.Click += new System.EventHandler(this.btnThemPp_Click);
@@ -185,7 +199,7 @@ namespace ASS_EF.core
             this.btnLoadDanhba.Location = new System.Drawing.Point(214, 317);
             this.btnLoadDanhba.Name = "btnLoadDanhba";
             this.btnLoadDanhba.Size = new System.Drawing.Size(185, 34);
-            this.btnLoadDanhba.TabIndex = 2;
+            this.btnLoadDanhba.TabIndex = 8;
             this.btnLoadDanhba.Text = "Danh Sách Danh Bạ";
             this.btnLoadDanhba.UseVisualStyleBackColor = true;
             this.btnLoadDanhba.Click += new System.EventHandler(this.btnLoadDanhba_Click);
@@ -196,7 +210,7 @@ namespace ASS_EF.core
             this.btnLoadPerson.Location = new System.Drawing.Point(6, 317);
             this.btnLoadPerson.Name = "btnLoadPerson";
             this.btnLoadPerson.Size = new System.Drawing.Size(202, 34);
-            this.btnLoadPerson.TabIndex = 2;
+            this.btnLoadPerson.TabIndex = 7;
             this.btnLoadPerson.Text = "   Danh Sách Người Dùng";
             this.btnLoadPerson.UseVisualStyleBackColor = true;
             this.btnLoadPerson.Click += new System.EventHandler(this.btnLoadPerson_Click);
@@ -373,7 +387,7 @@ namespace ASS_EF.core
             this.rtbGhiChu.MaxLength = 150;
             this.rtbGhiChu.Name = "rtbGhiChu";
             this.rtbGhiChu.Size = new System.Drawing.Size(307, 54);
-            this.rtbGhiChu.TabIndex = 1;
+            this.rtbGhiChu.TabIndex = 4;
             this.rtbGhiChu.Text = "";
             // 
             // lblGhiChu
@@ -426,7 +440,7 @@ namespace ASS_EF.core
             this.txtMail.Location = new System.Drawing.Point(113, 178);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(307, 31);
-            this.txtMail.TabIndex = 1;
+            this.txtMail.TabIndex = 3;
             // 
             // txtSdt2
             // 
@@ -435,7 +449,7 @@ namespace ASS_EF.core
             this.txtSdt2.Name = "txtSdt2";
             this.txtSdt2.PlaceholderText = "+84";
             this.txtSdt2.Size = new System.Drawing.Size(307, 31);
-            this.txtSdt2.TabIndex = 1;
+            this.txtSdt2.TabIndex = 2;
             // 
             // txtSdt1
             // 
@@ -552,6 +566,7 @@ namespace ASS_EF.core
         private System.Windows.Forms.Button btnKiemTra;
         private System.Windows.Forms.ComboBox cbNhaMang;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblID;
     }
 }
 
