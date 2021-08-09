@@ -17,7 +17,9 @@ namespace ASS_EF.core.Services
         {
             try
             {
-                _lstpersonNewAdd[_lstpersonNewAdd.FindIndex(x => x.IdPp == People.IdPp)] = People;// cập nhật list người dùng mới thêm
+                var indexnew = _lstpersonNewAdd.FindIndex(x => x.IdPp == People.IdPp);
+                if (indexnew >= 0)
+                    _lstpersonNewAdd[indexnew] = People;// cập nhật list người dùng mới thêm
                 _lstperson[_lstperson.FindIndex(x => x.IdPp == People.IdPp)] = People;// cập nhật trong list người dùng
                 var index = _peopleDanhbas.FindIndex(x => x.Id == People.IdPp);// cập nhật trong list danh bạ người dùng
                 if (index >= 0)
@@ -54,8 +56,10 @@ namespace ASS_EF.core.Services
         {
             try
             {
-                _lstpersonNewAdd.RemoveAt(_lstpersonNewAdd.FindIndex(x=>x.IdPp == People.IdPp));// xóa bản ghi trong list người mới
-                _lstperson.RemoveAt(_lstperson.FindIndex(x=>x.IdPp == People.IdPp));// xóa bản ghi trong list người
+                var idex = _lstpersonNewAdd.FindIndex(x => x.IdPp == People.IdPp);
+                if (idex >= 0)
+                    _lstpersonNewAdd.RemoveAt(idex);// xóa bản ghi trong list người mới
+                _lstperson.RemoveAt(_lstperson.FindIndex(x => x.IdPp == People.IdPp));// xóa bản ghi trong list người
                 var index = _peopleDanhbas.FindIndex(x => x.Id == People.IdPp);
                 if (index >= 0)
                     _peopleDanhbas.RemoveAt(index);// xóa trong list người dùng danh bạ

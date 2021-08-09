@@ -167,7 +167,7 @@ namespace ASS_EF.core
 
             if (dgvdata.ColumnCount == 5)
             {
-                if (Regex.IsMatch(txtSdt1.Text, @"[^0-9]") || Regex.IsMatch(txtSdt2.Text, @"[^0-9]") || Regex.IsMatch(txtSdt1.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+                if (Regex.IsMatch(txtSdt1.Text, @"[^0-9]") || Regex.IsMatch(txtSdt2.Text, @"[^0-9]") || Regex.IsMatch(txtMail.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
                 {
                     MessageBox.Show("Kiểm tra lại định dạng của số điện toại và mail.");
                     return false;
